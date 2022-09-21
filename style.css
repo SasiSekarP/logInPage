@@ -1,0 +1,74 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0px;
+    font-weight: 900;
+    background-image: url('https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.form{
+    line-height: 1.5rem;
+    width: 350px;
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: rgb(59, 59, 233);
+    opacity: 0.6;
+    color: white;
+}
+
+.formControle{
+    display: flex;
+    flex-direction: column;
+}
+
+input{
+    height: 2rem;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 0px;
+}
+
+label{
+    margin: 1rem 0rem 0.25rem;
+}
+
+.btn{
+    width: 100%;
+    height: 2.5rem;
+    border-radius: 0.35rem;
+    background-color:rgb(225, 206, 206);
+    margin: 1rem 0rem 0.5rem;
+    border: 0px;
+}
+
+.formControle small {
+    position: relative;
+    bottom: 2px;
+    visibility: hidden;
+}
+
+
+.formControle.error{
+    visibility: visible;
+    color: red;
+}
+
+.btn:hover{
+    background-color:gray;
+    color: aliceblue;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 425px) {
+    .form{
+        width: 80%;
+        margin: auto;
+    }
+}
