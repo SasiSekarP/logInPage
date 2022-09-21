@@ -7,7 +7,7 @@ body{
     box-sizing: border-box;
     margin: 0px;
     font-weight: 900;
-    background-image: url('https://img.freepik.com/free-vector/abstract-blue-geometric-shapes-background_1035-17545.jpg?w=2000');
+    background-image: url('https://images.pexels.com/photos/552789/pexels-photo-552789.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -18,14 +18,9 @@ body{
     border: 1px solid black;
     padding: 1rem;
     border-radius: 1rem;
-    background-color: rgb(59, 59, 233);
+    background-color: rgb(58, 58, 212);
     opacity: 0.6;
-    color: white;
-}
-
-.formControle{
-    display: flex;
-    flex-direction: column;
+    color: rgb(255, 255, 255);
 }
 
 input{
@@ -33,6 +28,7 @@ input{
     padding: 0px 10px;
     border-radius: 5px;
     border: 0px;
+    margin-bottom: 1rem;
 }
 
 label{
@@ -48,16 +44,21 @@ label{
     border: 0px;
 }
 
-.formControle small {
+.formControle{
+    display: flex;
+    flex-direction: column;
     position: relative;
-    bottom: 2px;
+}
+
+.formControle small{
+    color: red;
+    position: absolute;
+    bottom: -5px;
     visibility: hidden;
 }
 
-
-.formControle.error{
+.formControle.error small{
     visibility: visible;
-    color: red;
 }
 
 .btn:hover{
