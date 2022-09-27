@@ -14,46 +14,50 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
     let PasswordValue = PasswordEl.value;
     let ConfirmPasswordValue = ConfirmPasswordEl.value;
 
+     // function
+
+     function ShowError (lableEl){
+        const formControleEl = lableEl.parentElement;
+        formControleEl.classList.add('error');
+    }
+
+    function hideError(lableEl) {
+        const formControleEl = lableEl.parentElement;
+        formControleEl.classList.remove('error');
+    }
+
     // User Name
 
     const UserNameLen = UserNameValue.length;
 
     if (UserNameValue === '') {
-        const formControleEl = UserNameEl.parentElement;
-        formControleEl.classList.add('error');
-        document.getElementById('UserNameAlert').textContent = 'Please fill the above.'
+        ShowError(UserNameEl);
+        document.getElementById('UserNameAlert').textContent = 'Please fill the above.';
     } else if (UserNameLen <= 4) {
-        const formControleEl = UserNameEl.parentElement;
-        formControleEl.classList.add('error');
+        ShowError(UserNameEl);
         document.getElementById('UserNameAlert').textContent = "Minimum 5 charectors"
     } else {
-        const formControleEl = UserNameEl.parentElement;
-        formControleEl.classList.remove('error')
+        hideError(UserNameEl);
     }
 
     // email Id
 
     if (EmailIDValue === '') {
-        const formControleEl = EmailIDEl.parentElement;
-        formControleEl.classList.add('error');
+        ShowError(EmailIDEl);
     } else {
-        const formControleEl = EmailIDEl.parentElement;
-        formControleEl.classList.remove('error')
+        hideError(EmailIDEl);
     }
 
     // phone number
 
     if (PhoneNumberValue === '') {
-        const formControleEl = PhoneNumberEl.parentElement;
-        formControleEl.classList.add('error');
+        ShowError(PhoneNumberEl);
         document.getElementById('PhoneNumberAlert').textContent = 'Please fill the above.';
     } else if (PhoneNumberValue <= 999999999){
-        const formControleEl = PhoneNumberEl.parentElement;
-        formControleEl.classList.add('error');
+        ShowError(PhoneNumberEl);
         document.getElementById('PhoneNumberAlert').textContent = 'Phone number must have 10 numbers';
     } else {
-        const formControleEl = PhoneNumberEl.parentElement;
-        formControleEl.classList.remove('error')
+        hideError(PhoneNumberEl);
     }
 
     // password
@@ -61,30 +65,24 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
     const PasswordLen = PasswordValue.length;
 
     if (PasswordValue === '') {
-        const formControleEl = PasswordEl.parentElement;
-        formControleEl.classList.add('error');
+        ShowError(PasswordEl);
         document.getElementById('PasswordAlert').textContent = 'Please fill the above.';
     } else if (PasswordLen <= 4) {
-        const formControleEl = PasswordEl.parentElement;
-        formControleEl.classList.add('error');
+        ShowError(PasswordEl);
         document.getElementById('PasswordAlert').textContent = 'Minimum 5 charectors';
     } else {
-        const formControleEl = PasswordEl.parentElement;
-        formControleEl.classList.remove('error')
+        hideError(PasswordEl);
     }
 
     // confirm Password
 
     if (ConfirmPasswordValue === '') {
-        const formControleEl = ConfirmPasswordEl.parentElement;
-        formControleEl.classList.add('error');
+        ShowError(ConfirmPasswordEl);
         document.getElementById('ConfirmPasswordAlert').textContent = 'Please fill the above.';
     } else if (ConfirmPasswordValue !== PasswordValue ) {
-        const formControleEl = ConfirmPasswordEl.parentElement;
-        formControleEl.classList.add('error');
+        ShowError(ConfirmPasswordEl);
         document.getElementById('ConfirmPasswordAlert').textContent = 'Password does not match';
     } else {
-        const formControleEl = ConfirmPasswordEl.parentElement;
-        formControleEl.classList.remove('error')
+        hideError(ConfirmPasswordEl);
     }
 });
