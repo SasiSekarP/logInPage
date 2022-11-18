@@ -26,6 +26,10 @@ a:hover{
     text-decoration: underline;
 }
 
+input{
+    outline: none;
+}
+
 .form{
     line-height: 1.5rem;
     width: 350px;
