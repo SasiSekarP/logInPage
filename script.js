@@ -125,6 +125,6 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
 
 function checkIsItValid() {
     if (obj.userName && obj.EmailID && obj.PhoneNo && obj.Password && obj.ConfirmPassword) {
-        alert('Form validation is success. Your form is valid');
+        alert('Form validation is successfull. Your form is valid');
     }
 }
