@@ -12,20 +12,6 @@ body{
     background-size: cover;
 }
 
-.links{
-    display: flex;
-    justify-content: space-between;
-}
-
-a{
-    color: white;
-    text-decoration: none;
-}
-
-a:hover{
-    text-decoration: underline;
-}
-
 input{
     outline: none;
 }

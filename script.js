@@ -43,9 +43,14 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
     // email Id
 
     if (EmailIDValue === '') {
-        ShowError(EmailIDEl);
+        document.getElementById('EmailIDError').style.visibility = 'visible';
     } else {
-        hideError(EmailIDEl);
+        document.getElementById('EmailIDError').style.visibility = 'hidden';
+        if (/@/.test(EmailIDValue)) {
+            document.getElementById('OnlyEmail').style.visibility = 'hidden'
+        } else {
+            document.getElementById('OnlyEmail').style.visibility = 'visible';
+        }
     }
 
     // phone number
