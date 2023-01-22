@@ -36,6 +36,11 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
         formControleEl.classList.remove('error');
     }
 
+    // run
+
+    
+    checkIsItValid()
+
     // User Name
 
     const UserNameLen = UserNameValue.length;
@@ -51,7 +56,6 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
     } else {
         hideError(UserNameEl);
         obj.userName = true;
-        checkIsItValid()
     }
 
     // email Id
@@ -83,7 +87,6 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
     } else {
         hideError(PhoneNumberEl);
         obj.PhoneNo = true;
-        checkIsItValid()
     }
 
     // password
@@ -101,7 +104,6 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
     } else {
         hideError(PasswordEl);
         obj.Password = true;
-        checkIsItValid()
     }
 
     // confirm Password
