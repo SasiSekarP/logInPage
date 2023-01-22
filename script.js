@@ -6,6 +6,16 @@ const PhoneNumberEl = document.getElementById('PhoneNumber');
 const PasswordEl = document.getElementById('Password');
 const ConfirmPasswordEl = document.getElementById('ConfirmPassword');
 
+// global variable
+
+let obj = {
+    userName: false,
+    EmailID: false,
+    PhoneNo: false,
+    Password: false,
+    ConfirmPassword: false
+}
+
 formEl.addEventListener('submit', function (evenOrAnyName) {
     evenOrAnyName.preventDefault();
     let UserNameValue = UserNameEl.value;
@@ -33,36 +43,47 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
     if (UserNameValue === '') {
         ShowError(UserNameEl);
         document.getElementById('UserNameAlert').textContent = 'Please fill the above.';
-    } else if (UserNameLen <= 4) {
+        obj.userName= false;
+    } else if (UserNameLen < 4) {
         ShowError(UserNameEl);
-        document.getElementById('UserNameAlert').textContent = "Minimum 5 charectors"
+        document.getElementById('UserNameAlert').textContent = "Minimum 4 charectors";
+        obj.userName= false;
     } else {
         hideError(UserNameEl);
+        obj.userName = true;
+        checkIsItValid()
     }
 
     // email Id
 
     if (EmailIDValue === '') {
         document.getElementById('EmailIDError').style.visibility = 'visible';
+        obj.EmailID= false;
     } else {
         document.getElementById('EmailIDError').style.visibility = 'hidden';
         if (/@/.test(EmailIDValue)) {
-            document.getElementById('OnlyEmail').style.visibility = 'hidden'
+            document.getElementById('OnlyEmail').style.visibility = 'hidden';
+            obj.EmailID = true;
+            checkIsItValid()
         } else {
             document.getElementById('OnlyEmail').style.visibility = 'visible';
+            obj.EmailID= false;
         }
     }
 
     // phone number
-
     if (PhoneNumberValue === '') {
         ShowError(PhoneNumberEl);
         document.getElementById('PhoneNumberAlert').textContent = 'Please fill the above.';
-    } else if (PhoneNumberValue <= 999999999){
+        obj.PhoneNo = false;
+    } else if (String(PhoneNumberValue).length != 10){
         ShowError(PhoneNumberEl);
         document.getElementById('PhoneNumberAlert').textContent = 'Phone number must have 10 numbers';
+        obj.PhoneNo= false;
     } else {
         hideError(PhoneNumberEl);
+        obj.PhoneNo = true;
+        checkIsItValid()
     }
 
     // password
@@ -71,12 +92,16 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
 
     if (PasswordValue === '') {
         ShowError(PasswordEl);
+        obj.Password= false;
         document.getElementById('PasswordAlert').textContent = 'Please fill the above.';
     } else if (PasswordLen <= 4) {
         ShowError(PasswordEl);
+        obj.Password= false;
         document.getElementById('PasswordAlert').textContent = 'Minimum 5 charectors';
     } else {
         hideError(PasswordEl);
+        obj.Password = true;
+        checkIsItValid()
     }
 
     // confirm Password
@@ -84,10 +109,20 @@ formEl.addEventListener('submit', function (evenOrAnyName) {
     if (ConfirmPasswordValue === '') {
         ShowError(ConfirmPasswordEl);
         document.getElementById('ConfirmPasswordAlert').textContent = 'Please fill the above.';
+        obj.ConfirmPassword= false;
     } else if (ConfirmPasswordValue !== PasswordValue ) {
         ShowError(ConfirmPasswordEl);
+        obj.ConfirmPassword= false;
         document.getElementById('ConfirmPasswordAlert').textContent = 'Password does not match';
     } else {
         hideError(ConfirmPasswordEl);
+        obj.ConfirmPassword = true;
+        checkIsItValid()
     }
 });
+
+function checkIsItValid() {
+    if (obj.userName && obj.EmailID && obj.PhoneNo && obj.Password && obj.ConfirmPassword) {
+        alert('Form validation is success. Your form is valid');
+    }
+}
